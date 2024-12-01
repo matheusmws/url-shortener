@@ -1,0 +1,11 @@
+{
+  "environment": "dev",
+  "service_name": "URL Shortener",
+  "timeouts": {
+    "global": "3000ms",
+    "backend": "2500ms"
+  },
+  "default_hosts": {
+    "api": "http://api:3000"
+  }
+} 

@@ -1,0 +1,22 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Instalar typescript globalmente
+RUN npm install -g typescript
+
+# Copiar arquivos de dependência
+COPY package*.json ./
+RUN npm install
+
+# Copiar código fonte e arquivos de configuração do TypeScript
+COPY tsconfig.json ./
+COPY src/ ./src/
+
+# Compilar TypeScript
+RUN tsc
+
+EXPOSE 3000
+
+# Executar o arquivo JS compilado
+CMD ["node", "./dist/index.js"] 

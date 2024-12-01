@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: url-shortener
+
+resources:
+- ../../base
+
+patches:
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: api
+    spec:
+      replicas: 1
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: krakend
+    spec:
+      replicas: 1
+
+configMapGenerator:
+- name: app-config
+  literals:
+  - NODE_ENV=development
+  - LOG_LEVEL=debug 

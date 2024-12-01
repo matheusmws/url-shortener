@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: krakend
+spec:
+  type: LoadBalancer
+  selector:
+    app: krakend
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
