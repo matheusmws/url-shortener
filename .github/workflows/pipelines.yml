@@ -24,13 +24,13 @@ jobs:
         cache: 'npm'
 
     - name: Installing dependencies
-    - run: npm install
+      run: npm install
 
     - name: Generating docker images and kubernetes settings
-    - run: npm run k8s:dev
+      run: npm run k8s:dev
     
     - name: Testing with coverage
-    - run: npm run test:coverage
+      run: npm run test:coverage
     
     - name: Running on production
-    - run: npm run dev
+      run: npm run dev
